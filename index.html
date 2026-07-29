@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portofolio" />
+  <meta name="author" content="Azuka" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>AzukaPorto</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,600,700');
+
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      scrollbar-color: rgba(100,98,86,0.8) rgba(143, 139, 122, 0.7);
+      scrollbar-width: auto;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .title {
+      padding: 20px;
+      font-family: 'Montserrat', sans-serif;
+      color: #4b4340;
+      text-shadow: 4px 5px rgba(162, 156, 142, .8);
+    }
+
+    .subtitle {
+      padding: 0 20px 20px 20px;
+      margin-top: -15px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 200;
+      color: #4b4340;
+      letter-spacing: 1px;
+    }
+
+    .sectionTitle {
+      padding: 1% 1%;
+      color: #d3cebb;
+      background: rgba(100, 98, 86, 0.8);
+    }
+
+    ::-moz-selection {
+      color: #d3cebb;
+      background: rgba(100, 98, 86, 0.8);
+    }
+
+    ::selection {
+      color: #d3cebb;
+      background: rgba(100, 98, 86, 0.8);
+    }
+
+    body {
+      background-color: #ccc6b0;
+      background-image: linear-gradient(90deg, rgba(198, 192, 170, .5) 30%, transparent 30%),
+        linear-gradient(rgba(198, 192, 170, .5) 30%, transparent 30%);
+      background-size: 5px 5px;
+      font-weight: 400;
+    }
+
+    h1, h2, h3, h4, h5, h6, strong {
+      font-weight: 510;
+    }
+
+    .coreSystem {
+      display: inline-block;
+      width: 100%;
+      min-height: 100vh;
+      box-shadow: inset 0px 0px 100px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .section {
+      margin: 20px 30px;
+      padding: 0 0 1px 0;
+      background: rgba(216, 210, 186, .5);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 20pt;
+      color: #4b4340;
+      box-shadow: 2px 2px 1px #4f4b42;
+    }
+
+    .dropContent {
+      display: block;
+      padding: 2px;
+      margin: 3px 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .dropContent:hover {
+      color: #d3cebb;
+      background: #4e493a;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0px 8px;
+    }
+
+    li {
+      margin-left: 20px;
+    }
+
+    li:last-of-type {
+      margin-bottom: 8px;
+    }
+
+    .selected {
+      font-weight: bold;
+    }
+
+    a:not(#hidelink) {
+      color: #4b4340;
+      font-weight: bold;
+    }
+
+    .soundControl {
+      position: relative;
+      float: right;
+      right: 1em;
+      top: 0.5em;
+      font-size: 2em;
+      color: rgba(100, 98, 86, 0.8);
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .heroSection {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin: 20px 30px;
+      padding: 30px;
+      background: rgba(216, 210, 186, .5);
+      box-shadow: 2px 2px 1px #4f4b42;
+      font-family: 'Montserrat', sans-serif;
+      color: #4b4340;
+    }
+
+    .portraitFrame {
+      flex-shrink: 0;
+      width: 160px;
+      height: 160px;
+      border: 3px solid rgba(100, 98, 86, 0.8);
+      position: relative;
+      overflow: hidden;
+      background: rgba(100,98,86,0.15);
+    }
+
+    .portraitFrame::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      box-shadow: inset 0px 0px 5px 15px rgba(204, 198, 176, 0.9);
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(204, 198, 176, 0.9) 3%, transparent 3%),
+        linear-gradient(rgba(204, 198, 176, 0.9) 3%, transparent 3%);
+      background-size: 5px 5px;
+    }
+
+    .portraitFrame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .heroText h1 {
+      font-weight: 700;
+      font-size: 2em;
+      text-shadow: 3px 4px rgba(162, 156, 142, .8);
+      margin-bottom: 6px;
+    }
+
+    .heroText p {
+      font-weight: 200;
+      letter-spacing: 1px;
+    }
+
+    /* Skills / stack chips */
+    .chipGrid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px 16px 18px 16px;
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: rgba(100, 98, 86, 0.15);
+      border: 1px solid rgba(100, 98, 86, 0.6);
+      font-size: 0.9em;
+      font-weight: 600;
+      transition: all .2s ease-out;
+    }
+
+    .chip:hover {
+      color: #d3cebb;
+      background: #4e493a;
+    }
+
+    .chip i, .chip img {
+      font-size: 1.1em;
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+    }
+
+    /* Project cards */
+    .projectGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      padding: 14px 16px 20px 16px;
+    }
+
+    .projectCard {
+      background: rgba(255, 253, 246, 0.3);
+      border: 1px solid rgba(100, 98, 86, 0.5);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .projectThumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: repeating-linear-gradient(45deg, rgba(100,98,86,0.18), rgba(100,98,86,0.18) 10px, rgba(100,98,86,0.08) 10px, rgba(100,98,86,0.08) 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.75em;
+      font-weight: 600;
+      color: #6b6355;
+      padding: 8px;
+      position: relative;
+    }
+
+    .projectThumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .projectInfo {
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+    }
+
+    .projectInfo strong {
+      font-size: 0.95em;
+    }
+
+    .projectInfo a.linkbutton {
+      align-self: flex-start;
+      text-decoration: none;
+      font-size: 0.85em;
+      padding: 4px 10px;
+      border: 1px solid rgba(100, 98, 86, 0.8);
+      transition: all .2s ease-out;
+    }
+
+    .projectInfo a.linkbutton:hover {
+      color: #d3cebb;
+      background: #4e493a;
+    }
+
+    /* Certificate gallery */
+    .certGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      padding: 14px 16px 20px 16px;
+    }
+
+    .certThumb {
+      aspect-ratio: 4 / 3;
+      background: repeating-linear-gradient(45deg, rgba(100,98,86,0.18), rgba(100,98,86,0.18) 10px, rgba(100,98,86,0.08) 10px, rgba(100,98,86,0.08) 20px);
+      border: 1px solid rgba(100, 98, 86, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: #6b6355;
+      overflow: hidden;
+    }
+
+    .certThumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    .footerSection {
+      margin: 20px 30px 40px 30px;
+      padding: 20px;
+      background: rgba(100, 98, 86, 0.85);
+      color: #d3cebb;
+      font-family: 'Montserrat', sans-serif;
+      box-shadow: 2px 2px 1px #4f4b42;
+    }
+
+    .footerSection h2 {
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .footerLinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footerLinks a {
+      color: #d3cebb !important;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      transition: opacity .2s ease-out;
+    }
+
+    .footerLinks a:hover {
+      opacity: 0.7;
+    }
+
+    /* mobile */
+    @media only screen and (max-width: 600px) {
+
+      .sectionTitle {
+        font-size: 15px;
+        padding: 0.5em 0.5em;
+      }
+
+      .heroSection {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .heroText h1 {
+        font-size: 1.5em;
+      }
+
+      .footerLinks {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="tutorial-sound">
+    <source src="sounds/core_1.ogg" type="audio/ogg">
+  </audio>
+  <audio id="hover-sound">
+    <source src="sounds/core_16.ogg" type="audio/ogg">
+  </audio>
+  <audio id="click-sound">
+    <source src="sounds/core_52.ogg" type="audio/ogg">
+  </audio>
+  <audio id="open-link-sound">
+    <source src="sounds/core_58.ogg" type="audio/ogg">
+  </audio>
+  <audio id="themeSong" loop src="sounds/City Ruins - Rays of Light.ogg" preload="auto"></audio>
+
+  <div class='coreSystem'>
+    <i id="controlButton" class="fas fa-play soundControl" title="Putar musik tema"></i>
+    <h1 class="title fadeIn">Portfolio || ポートフォリオ</h1>
+    <p class="subtitle fadeIn">Game Design & Development ⋅ Digital Art</p>
+
+
+    <div class="heroSection fadeIn">
+      <div class="portraitFrame">
+        <img src="Azuka.png" alt="Foto portrait">
+      </div>
+      <div class="heroText">
+        <h1>Azka El Fachrizy</h1>
+        <p>Game Designer & Technical Artist Unity, Roblox Studio, Blender, dan Frontend.</p>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="section fadeIn" id="skills">
+      <h2 class='sectionTitle'>Skills</h2>
+      <div class="chipGrid">
+        <div class="chip"><i class="fas fa-gamepad"></i> Game Design</div>
+        <div class="chip"><i class="fas fa-paint-brush"></i> Technical Game Artist</div>
+        <div class="chip"><i class="fas fa-code"></i> Game Programmer</div>
+        <div class="chip"><i class="fas fa-object-group"></i> UI/UX</div>
+        <div class="chip"><i class="fas fa-cube"></i> 3D Low Poly Modeler</div>
+        <div class="chip"><i class="fas fa-th"></i> 2D Pixel Art</div>
+        <div class="chip"><i class="fas fa-laptop-code"></i> Frontend</div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="section fadeIn" id="stack">
+      <h2 class='sectionTitle'>Tech Stack</h2>
+      <div class="chipGrid">
+        <div class="chip"><i class="fab fa-github"></i> GitHub</div>
+        <div class="chip"><img src="https://cdn.simpleicons.org/unity/4b4340" alt="Unity"> Unity</div>
+        <div class="chip"><img src="https://cdn.simpleicons.org/roblox/4b4340" alt="Roblox Studio"> Roblox Studio</div>
+        <div class="chip"><img src="https://cdn.simpleicons.org/blender/4b4340" alt="Blender"> Blender</div>
+        <div class="chip"><img src="https://cdn.simpleicons.org/claude/4b4340" alt="Claude"> Claude</div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section fadeIn" id="projects">
+      <h2 class='sectionTitle'>Projects</h2>
+
+      <div class='dropContent'>A. Unity</div>
+      <div class="projectGrid content">
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://img.itch.zone/aW1hZ2UvNDIwOTQxMi8yNTA4NjM4Ny5qcGVn/original/fVz7zm.jpeg" alt="Unity project screenshot"></div>
+          <div class="projectInfo">
+            <strong>A GAME ABOUT SURVIVING YOUR SPACESHIP</strong>
+            <a href="https://asakanaa.itch.io/a-game-about-surviving-your-spaceship" target="_blank">itch.io</a>
+          </div>
+        </div>
+          <div class="projectCard">
+          <div class="projectThumb"><img src="keturon.png" alt="Unity project screenshot"></div>
+          <div class="projectInfo">
+            <strong>Keturon</strong>
+            <a href="#" target="_blank">In Development - Click here to see ingame screenshot</a>
+          </div>
+        </div>
+      </div>
+
+      <div class='dropContent'>B. Roblox Studio</div>
+      <div class="projectGrid content">
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://tr.rbxcdn.com/180DAY-5007481bcd192faf0abdcbce4505e83c/768/432/Image/Webp/noFilter" alt="Roblox game screenshot"></div>
+          <div class="projectInfo">
+            <strong>Akademi Kepolisian Jakarta City</strong>
+            <a href="https://www.roblox.com/games/119371862259507/Akademi-Kepolisian-Jakarta-City" target="_blank">Mainkan di Roblox</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://tr.rbxcdn.com/180DAY-a073b2767d166f3034c51dd0586fb43b/768/432/Image/Webp/noFilter" alt="Roblox game screenshot"></div>
+          <div class="projectInfo">
+            <strong>Markas Komando Brimob</strong>
+            <a href="https://www.roblox.com/games/112015813370685/mako-brimob" target="_blank">Mainkan di Roblox</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://tr.rbxcdn.com/180DAY-7f6c4bc0339c22053118f49703ce6f40/768/432/Image/Webp/noFilter" alt="Roblox game screenshot"></div>
+          <div class="projectInfo">
+            <strong>Jakarta City Educational School</strong>
+            <a href="https://www.roblox.com/games/114578665699389/Jakarta-City-Educational-School" target="_blank">Mainkan di Roblox</a>
+          </div>
+        </div>
+         <div class="projectCard">
+          <div class="projectThumb"><img src="https://tr.rbxcdn.com/180DAY-b11d51f14f8b28bb2dc34686ea471807/768/432/Image/Webp/noFilter" alt="Roblox game screenshot"></div>
+          <div class="projectInfo">
+            <strong>Untitled Experience</strong>
+            <a href="https://www.roblox.com/games/114578665699389/Jakarta-City-Educational-School" target="_blank">Mainkan di Roblox</a>
+          </div>
+        </div>
+      </div>
+
+      <div class='dropContent'>C. Blender</div>
+      <div class="projectGrid content">
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Blender+Render" alt="Blender render"></div>
+          <div class="projectInfo">
+            <strong>Hasil Render Blender</strong>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Roblox+Game" alt="Roblox game screenshot"></div>
+          <div class="projectInfo">
+            <strong>Nama Game Roblox</strong>
+            <a href="#" target="_blank">Mainkan di Roblox</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Roblox+Game" alt="Roblox game screenshot"></div>
+          <div class="projectInfo">
+            <strong>Nama Game Roblox</strong>
+            <a href="#" target="_blank">Mainkan di Roblox</a>
+          </div>
+        </div>
+      </div>
+
+      <div class='dropContent'>D. React</div>
+      <div class="projectGrid content">
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=React+Website" alt="React website screenshot"></div>
+          <div class="projectInfo">
+            <strong>Nama Website React</strong>
+            <a href="#" target="_blank">Kunjungi Website</a>
+          </div>
+        </div>
+         <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=React+Website" alt="React website screenshot"></div>
+          <div class="projectInfo">
+            <strong>Nama Website React</strong>
+            <a href="#" target="_blank">Kunjungi Website</a>
+          </div>
+        </div>
+         <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=React+Website" alt="React website screenshot"></div>
+          <div class="projectInfo">
+            <strong>Nama Website React</strong>
+            <a href="#" target="_blank">Kunjungi Website</a>
+          </div>
+        </div>
+      </div>
+
+      <div class='dropContent'>E. Flutter</div>
+      <div class="projectGrid content">
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Flutter+App" alt="Flutter app screenshot"></div>
+          <div class="projectInfo">
+            <strong>Nama Aplikasi Flutter</strong>
+            <a href="#" target="_blank">Lihat Repo</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Flutter+App" alt="Flutter app screenshot"></div>
+          <div class="projectInfo">
+            <strong>Nama Aplikasi Flutter</strong>
+            <a href="#" target="_blank">Lihat Repo</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Flutter+App" alt="Flutter app screenshot"></div>
+          <div class="projectInfo">
+            <strong>Nama Aplikasi Flutter</strong>
+            <a href="#" target="_blank">Lihat Repo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class='dropContent'>F. Figma</div>
+      <div class="projectGrid content">
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Figma+Design" alt="Figma design screenshot"></div>
+          <div class="projectInfo">
+            <strong>Desain UI/UX Figma</strong>
+          </div>
+        </div>
+          <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Figma+Design" alt="Figma design screenshot"></div>
+          <div class="projectInfo">
+            <strong>Desain UI/UX Figma</strong>
+          </div>
+        </div>
+          <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Figma+Design" alt="Figma design screenshot"></div>
+          <div class="projectInfo">
+            <strong>Desain UI/UX Figma</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class='dropContent'>G. Pixel Art</div>
+      <div class="projectGrid content">
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+        <div class="projectCard">
+          <div class="projectThumb"><img src="https://placehold.co/400x250/4e493a/d3cebb?text=Pixel+Art" alt="Pixel art preview"></div>
+          <div class="projectInfo">
+            <strong>Koleksi Pixel Art</strong>
+            <a href="https://www.instagram.com/azelzyy/" target="_blank">Lihat di Instagram</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Certificate -->
+    <div class="section fadeIn" id="certificate">
+      <h2 class='sectionTitle'>Certificate</h2>
+      <div class="certGrid">
+        <div class="certThumb"><img src="certi2.jpg" alt="Sertifikat 1"></div>
+        <div class="certThumb"><img src="cerrti3.jpg" alt="Sertifikat 2"></div>
+        <div class="certThumb"><img src="certi1.png" alt="Sertifikat 3"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footerSection fadeIn" id="footer">
+      <h2>Contact</h2>
+      <div class="footerLinks">
+        <a href="mailto:azkaelfachrizy@gmail.com"><i class="fas fa-envelope"></i> azkaelfachrizy@gmail.com</a>
+        <a href="https://github.com/Azelzy" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://asakanaa.itch.io/" target="_blank"><i class="fab fa-itch-io"></i> itch.io</a>
+        <a href="https://www.instagram.com/azelzyy/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://steamcommunity.com/profiles/76561199203726539/" target="_blank"><i class="fab fa-steam"></i> Steam</a>
+        <a href="https://www.roblox.com/users/3207625071/profile" target="_blank"><i class="fas fa-cube"></i> Roblox</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Interactive -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type='text/javascript'>
+    $('.fadeIn').hide();
+    $('.fadeIn').fadeIn(500);
+
+    $('.content').hide();
+
+    $('.dropContent').click(function () {
+      $(this).next().slideToggle(300);
+      $(this).toggleClass("selected");
+    });
+  </script>
+
+  <!-- Sounds -->
+  <script>
+    $(document).ready(function () {
+      var hoverSound = document.getElementById("hover-sound");
+      var clickSound = document.getElementById("click-sound");
+      var openlinkSound = document.getElementById("open-link-sound");
+
+      $(".dropContent,.chip,.projectInfo a.linkbutton,.footerLinks a").hover(function () {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      }, function () {
+        hoverSound.load();
+      });
+
+      $(".dropContent,#controlButton").click(function () {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      });
+
+      $("a").click(function () {
+        openlinkSound.currentTime = 0;
+        openlinkSound.play();
+      });
+    });
+
+    var themeSong = document.getElementById("themeSong");
+    var onPlay = false;
+
+    function togglePlay() {
+      if (themeSong.paused) {
+        themeSong.play();
+        onPlay = true;
+      } else {
+        themeSong.pause();
+        onPlay = false;
+      }
+    }
+
+    $('#controlButton').click(togglePlay);
+
+    themeSong.onplaying = function () {
+      $('#controlButton').removeClass('fa-play').addClass('fa-pause');
+    };
+
+    themeSong.onpause = function () {
+      $('#controlButton').removeClass('fa-pause').addClass('fa-play');
+    };
+
+    function isTyping() {
+      var activeElement = document.activeElement;
+      return activeElement.tagName === "INPUT" ||
+        activeElement.tagName === "TEXTAREA" ||
+        activeElement.isContentEditable;
+    }
+
+    $(document).keydown(function (event) {
+      if ((event.key === " " || event.keyCode === 32) && !isTyping()) {
+        event.preventDefault();
+        togglePlay();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
