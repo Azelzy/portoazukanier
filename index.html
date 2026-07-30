@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portofolio" />
+    <meta name="description" content="Portfolio" />
     <meta name="author" content="Azuka" />
     <link
       rel="stylesheet"
@@ -97,11 +97,25 @@
       }
 
       .dropContent {
-        display: block;
-        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 10px;
         margin: 3px 8px;
         cursor: pointer;
         font-weight: 600;
+        transition: all 0.2s ease-out;
+      }
+
+      .dropContent::after {
+        content: "\f107";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        transition: transform 0.25s ease-out;
+      }
+
+      .dropContent.selected::after {
+        transform: rotate(180deg);
       }
 
       .dropContent:hover {
@@ -183,7 +197,14 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center top;
         display: block;
+        filter: sepia(0.45) saturate(0.75) contrast(1.05) brightness(0.97);
+        transition: filter 0.35s ease-out;
+      }
+
+      .portraitFrame:hover img {
+        filter: sepia(0.1) saturate(0.95) contrast(1.02) brightness(1);
       }
 
       .heroText h1 {
@@ -231,12 +252,30 @@
         object-fit: contain;
       }
 
+      /* Section intro text */
+      .sectionIntro {
+        padding: 10px 16px 0 16px;
+        font-size: 0.9em;
+        font-weight: 200;
+        letter-spacing: 0.3px;
+        opacity: 0.9;
+      }
+
+      /* Category label inside dropdown */
+      .categoryNote {
+        padding: 6px 16px 0 16px;
+        font-size: 0.82em;
+        font-weight: 200;
+        font-style: italic;
+        opacity: 0.85;
+      }
+
       /* Project cards */
       .projectGrid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
         gap: 16px;
-        padding: 14px 16px 20px 16px;
+        padding: 6px 16px 20px 16px;
       }
 
       .projectCard {
@@ -245,6 +284,12 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+      }
+
+      .projectCard:hover {
+        box-shadow: 3px 3px 1px #4f4b42;
+        transform: translate(-1px, -1px);
       }
 
       .projectThumb {
@@ -266,16 +311,38 @@
         color: #6b6355;
         padding: 8px;
         position: relative;
+        overflow: hidden;
+      }
+
+      .projectThumb::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          rgba(75, 67, 64, 0.12),
+          rgba(75, 67, 64, 0.12)
+        );
+        mix-blend-mode: multiply;
+        pointer-events: none;
       }
 
       .projectThumb img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
+        display: block;
+        filter: sepia(0.5) saturate(0.65) contrast(1.08) brightness(0.95);
+        transition: filter 0.35s ease-out, transform 0.35s ease-out;
+      }
+
+      .projectCard:hover .projectThumb img {
+        filter: sepia(0.15) saturate(0.9) contrast(1.02) brightness(1);
+        transform: scale(1.03);
       }
 
       .projectInfo {
-        padding: 10px 12px;
+        padding: 10px 12px 12px 12px;
         display: flex;
         flex-direction: column;
         gap: 6px;
@@ -286,26 +353,37 @@
         font-size: 0.95em;
       }
 
+      .projectDesc {
+        font-size: 0.82em;
+        font-weight: 400;
+        line-height: 16pt;
+        color: #4b4340;
+        opacity: 0.9;
+        flex-grow: 1;
+      }
+
       .projectInfo a.linkbutton {
         align-self: flex-start;
-        text-decoration: none;
         font-size: 0.85em;
-        padding: 4px 10px;
-        border: 1px solid rgba(100, 98, 86, 0.8);
-        transition: all 0.2s ease-out;
+        transition: opacity 0.2s ease-out;
       }
 
       .projectInfo a.linkbutton:hover {
-        color: #d3cebb;
-        background: #4e493a;
+        opacity: 0.7;
+      }
+
+      .linkRow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
       }
 
       /* Certificate gallery */
       .certGrid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 14px;
-        padding: 14px 16px 20px 16px;
+        padding: 6px 16px 20px 16px;
       }
 
       .certThumb {
@@ -331,6 +409,14 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
+        display: block;
+        filter: sepia(0.5) saturate(0.65) contrast(1.08) brightness(0.95);
+        transition: filter 0.35s ease-out;
+      }
+
+      .certThumb:hover img {
+        filter: sepia(0.15) saturate(0.9) contrast(1.02) brightness(1);
       }
 
       /* Footer */
@@ -416,20 +502,19 @@
       <i
         id="controlButton"
         class="fas fa-play soundControl"
-        title="Putar musik tema"
+        title="Play theme music"
       ></i>
       <h1 class="title fadeIn">Portfolio || ポートフォリオ</h1>
       <p class="subtitle fadeIn">Game Design & Development ⋅ Digital Art</p>
 
       <div class="heroSection fadeIn">
         <div class="portraitFrame">
-          <img src="Azuka.png" alt="Foto portrait" />
+          <img src="Azuka.png" alt="Portrait photo" />
         </div>
         <div class="heroText">
           <h1>Azka El Fachrizy</h1>
           <p>
-            Game Designer & Technical Artist Unity, Roblox Studio, Blender, dan
-            Frontend.
+            Game Designer & Technical Artist. Unity, Roblox Studio, Blender, Frontend.
           </p>
         </div>
       </div>
@@ -485,6 +570,9 @@
       <!-- Projects -->
       <div class="section fadeIn" id="projects">
         <h2 class="sectionTitle">Projects</h2>
+        <p class="sectionIntro">
+          Click each category to open the list of projects.
+        </p>
 
         <div class="dropContent">A. Unity</div>
         <div class="projectGrid content">
@@ -497,7 +585,13 @@
             </div>
             <div class="projectInfo">
               <strong>A GAME ABOUT SURVIVING YOUR SPACESHIP</strong>
+              <p class="projectDesc">
+                A short space-themed survival game made in Unity. Players
+                manage resources and fend off threats to keep the ship
+                running.
+              </p>
               <a
+                class="linkbutton"
                 href="https://asakanaa.itch.io/a-game-about-surviving-your-spaceship"
                 target="_blank"
                 >itch.io</a
@@ -510,8 +604,14 @@
             </div>
             <div class="projectInfo">
               <strong>Keturon</strong>
-              <a href="https://drive.google.com/drive/folders/1AN6rwpOE8jn7UVfjECzXh2-TQpSyopLl?usp=drive_link" target="_blank"
-                >In Development - Click here to see ingame screenshot</a
+              <p class="projectDesc">
+                A short horror project story game based on school at midnight.
+              </p>
+              <a
+                class="linkbutton"
+                href="https://drive.google.com/drive/folders/1AN6rwpOE8jn7UVfjECzXh2-TQpSyopLl?usp=drive_link"
+                target="_blank"
+                >In Development - See in-game screenshots</a
               >
             </div>
           </div>
@@ -521,17 +621,19 @@
         <div class="projectGrid content">
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="akpol.png"
-                alt="Roblox game screenshot"
-              />
+              <img src="akpol.png" alt="Roblox game screenshot" />
             </div>
             <div class="projectInfo">
               <strong>Akademi Kepolisian Jakarta City</strong>
+              <p class="projectDesc">
+                A police academy roleplay experience on Roblox, complete with
+                training grounds, classrooms, and other facilities.
+              </p>
               <a
+                class="linkbutton"
                 href="https://www.roblox.com/games/119371862259507/Akademi-Kepolisian-Jakarta-City"
                 target="_blank"
-                >Mainkan di Roblox</a
+                >Play on Roblox</a
               >
             </div>
           </div>
@@ -544,10 +646,15 @@
             </div>
             <div class="projectInfo">
               <strong>Markas Komando Brimob</strong>
+              <p class="projectDesc">
+                A Brimob command headquarters map for Roblox roleplay, laid
+                out to resemble the real facility.
+              </p>
               <a
+                class="linkbutton"
                 href="https://www.roblox.com/games/112015813370685/mako-brimob"
                 target="_blank"
-                >Mainkan di Roblox</a
+                >Play on Roblox</a
               >
             </div>
           </div>
@@ -560,26 +667,33 @@
             </div>
             <div class="projectInfo">
               <strong>Jakarta City Educational School</strong>
+              <p class="projectDesc">
+                A school map for Roblox roleplay, including classrooms,
+                hallways, and outdoor areas for student activities.
+              </p>
               <a
+                class="linkbutton"
                 href="https://www.roblox.com/games/114578665699389/Jakarta-City-Educational-School"
                 target="_blank"
-                >Mainkan di Roblox</a
+                >Play on Roblox</a
               >
             </div>
           </div>
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="roblox1.png"
-                alt="Roblox game screenshot"
-              />
+              <img src="roblox1.png" alt="Roblox game screenshot" />
             </div>
             <div class="projectInfo">
               <strong>Untitled Experience</strong>
+              <p class="projectDesc">
+                Map and mechanic experiments for further Roblox experience
+                development.
+              </p>
               <a
+                class="linkbutton"
                 href="https://www.roblox.com/games/114578665699389/Jakarta-City-Educational-School"
                 target="_blank"
-                >Mainkan di Roblox</a
+                >Play on Roblox</a
               >
             </div>
           </div>
@@ -589,24 +703,35 @@
         <div class="projectGrid content">
           <div class="projectCard">
             <div class="projectThumb">
-              <img src="blender1.png" alt="level1" />
+              <img src="blender1.png" alt="Blender level design" />
             </div>
             <div class="projectInfo">
-              <strong>level design</strong>
+              <strong>Level Design</strong>
+              <p class="projectDesc">
+                A study of spatial layout and level blocking in Blender for
+                game environments.
+              </p>
             </div>
           </div>
           <div class="projectCard">
             <div class="projectThumb">
-              <img src="propsplacement.png" alt="" />
+              <img src="propsplacement.png" alt="Props placement Blender" />
             </div>
             <div class="projectInfo">
-              <strong>props placement</strong>
+              <strong>Props Placement</strong>
+              <p class="projectDesc">
+                Arranging 3D assets and props within a scene to strengthen
+                the environment's atmosphere.
+              </p>
             </div>
           </div>
           <div class="projectCard">
-            <div class="projectThumb"><img src="mobilmbg.png" alt="" /></div>
+            <div class="projectThumb"><img src="mobilmbg.png" alt="MBG car model" /></div>
             <div class="projectInfo">
               <strong>Mobil MBG</strong>
+              <p class="projectDesc">
+                A low poly 3D vehicle model, built and rendered in Blender.
+              </p>
             </div>
           </div>
         </div>
@@ -617,38 +742,51 @@
             <div class="projectThumb">
               <img
                 src="https://github.com/Azelzy/JAKARTA-CITY-ROLEPLAY-WEBSITE/raw/main/ss1.png"
-                alt="website screenshot"
+                alt="JKC:RP website screenshot"
               />
             </div>
             <div class="projectInfo">
               <strong>JKC:RP Website</strong>
-              <a href="https://jakartacityroleplay.my.id/" target="_blank">Website</a>
-               <a href="https://github.com/Azelzy/JAKARTA-CITY-ROLEPLAY-WEBSITE" target="_blank">Repository</a>
+              <p class="projectDesc">
+                The official website for the Jakarta City roleplay
+                community, built with React for server information.
+              </p>
+              <div class="linkRow">
+                <a class="linkbutton" href="https://jakartacityroleplay.my.id/" target="_blank">Website</a>
+                <a class="linkbutton" href="https://github.com/Azelzy/JAKARTA-CITY-ROLEPLAY-WEBSITE" target="_blank">Repository</a>
+              </div>
             </div>
           </div>
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="jcpdwebsite.png"
-                alt="React website screenshot"
-              />
+              <img src="jcpdwebsite.png" alt="JCPD website screenshot" />
             </div>
             <div class="projectInfo">
               <strong>JCPD Website</strong>
-              <a href="https://azelzy.github.io/JAKARTA-POLICE-DEPARTMENT-WEBSITE/" target="_blank">Website</a>
-               <a href="https://github.com/Azelzy/JAKARTA-POLICE-DEPARTMENT-WEBSITE" target="_blank">Repository</a>
+              <p class="projectDesc">
+                The Jakarta City roleplay police department website,
+                showcasing divisions and recruitment information.
+              </p>
+              <div class="linkRow">
+                <a class="linkbutton" href="https://azelzy.github.io/JAKARTA-POLICE-DEPARTMENT-WEBSITE/" target="_blank">Website</a>
+                <a class="linkbutton" href="https://github.com/Azelzy/JAKARTA-POLICE-DEPARTMENT-WEBSITE" target="_blank">Repository</a>
+              </div>
             </div>
           </div>
           <div class="projectCard">
             <div class="projectThumb">
               <img
                 src="https://github.com/Azelzy/SISTEM-PAJAK-ROLEPLAY/raw/main/ss3.png"
-                alt="React website screenshot"
+                alt="Tax system roleplay screenshot"
               />
             </div>
             <div class="projectInfo">
               <strong>Sistem Pajak JKC:RP</strong>
-              <a href="https://github.com/Azelzy/SISTEM-PAJAK-ROLEPLAY" target="_blank">Repository</a>
+              <p class="projectDesc">
+                A web app for managing and calculating taxes within the
+                Jakarta City roleplay community.
+              </p>
+              <a class="linkbutton" href="https://github.com/Azelzy/SISTEM-PAJAK-ROLEPLAY" target="_blank">Repository</a>
             </div>
           </div>
         </div>
@@ -658,19 +796,30 @@
           <div class="projectCard">
             <div class="projectInfo">
               <strong>Food Ordering App</strong>
-              <a href="https://github.com/Azelzy/crudfirestoreandpaymentgateway" target="_blank">Lihat Repo</a>
+              <p class="projectDesc">
+                A food ordering app with Firestore integration and a payment
+                gateway for transactions.
+              </p>
+              <a class="linkbutton" href="https://github.com/Azelzy/crudfirestoreandpaymentgateway" target="_blank">View Repo</a>
             </div>
           </div>
           <div class="projectCard">
             <div class="projectInfo">
               <strong>Product Store App</strong>
-              <a href="https://github.com/Azelzy/pasmobile11pplg1_06" target="_blank">Lihat Repo</a>
+              <p class="projectDesc">
+                A simple product store app with CRUD features, built as a
+                class collaboration project.
+              </p>
+              <a class="linkbutton" href="https://github.com/Azelzy/pasmobile11pplg1_06" target="_blank">View Repo</a>
             </div>
           </div>
           <div class="projectCard">
             <div class="projectInfo">
               <strong>Todo List App</strong>
-              <a href="https://github.com/Azelzy/PROJEK_KOLLAB_FLUTTER_06_17" target="_blank">Lihat Repo</a>
+              <p class="projectDesc">
+                A task list app.
+              </p>
+              <a class="linkbutton" href="https://github.com/Azelzy/PROJEK_KOLLAB_FLUTTER_06_17" target="_blank">View Repo</a>
             </div>
           </div>
         </div>
@@ -679,27 +828,30 @@
         <div class="projectGrid content">
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="Realized.png"
-                alt="Figma design screenshot"
-              />
+              <img src="Realized.png" alt="RPG game design document" />
             </div>
             <div class="projectInfo">
               <strong>RPG Game Design</strong>
-              <a href="https://canva.link/6yfo0b8z0qp7yrv" target="_blank"
-                >Lihat PPT GDD</a
+              <p class="projectDesc">
+                A game design document (GDD) for an RPG, covering systems,
+                narrative, and gameplay structure in full for the GACCI
+                competition at Binus University.
+              </p>
+              <a class="linkbutton" href="https://canva.link/6yfo0b8z0qp7yrv" target="_blank"
+                >View GDD Slides</a
               >
             </div>
           </div>
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="grammar.png"
-                alt="Figma design screenshot"
-              />
+              <img src="grammar.png" alt="Parking panic game design" />
             </div>
             <div class="projectInfo">
-              <strong>Simple Parking panic like game</strong>
+              <strong>Simple Parking Panic-like Game</strong>
+              <p class="projectDesc">
+                A casual game concept about parking under time pressure and
+                limited space.
+              </p>
             </div>
           </div>
         </div>
@@ -708,57 +860,60 @@
         <div class="projectGrid content">
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="hiura.png"
-                alt="Pixel art preview"
-              />
+              <img src="hiura.png" alt="Pixel art Hiura Mihate" />
             </div>
             <div class="projectInfo">
-              <strong>"Hiura Mihate</strong>
-              <a href="https://www.instagram.com/azelzyy/" target="_blank"
-                >Lihat lainnya di Instagram</a
+              <strong>Hiura Mihate</strong>
+              <p class="projectDesc">
+                Pixel art fan art of Hiura Mihate wearing a student council x
+                seifuku uniform.
+              </p>
+              <a class="linkbutton" href="https://www.instagram.com/azelzyy/" target="_blank"
+                >See more on Instagram</a
               >
             </div>
           </div>
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="shiota.png"
-                alt="Pixel art preview"
-              />
+              <img src="shiota.png" alt="Pixel art Nagisa Shiota" />
             </div>
             <div class="projectInfo">
               <strong>Nagisa Shiota</strong>
-              <a href="https://www.instagram.com/azelzyy/" target="_blank"
-                >Lihat lainnya di Instagram</a
+              <p class="projectDesc">
+                Pixel art fan art of Nagisa Shiota from the anime
+                Assassination Classroom.
+              </p>
+              <a class="linkbutton" href="https://www.instagram.com/azelzyy/" target="_blank"
+                >See more on Instagram</a
               >
             </div>
           </div>
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="dete.png"
-                alt="Pixel art preview"
-              />
+              <img src="dete.png" alt="Pixel art Detective Girl" />
             </div>
             <div class="projectInfo">
               <strong>Detective Girl of the Steam City</strong>
-              <a href="https://www.instagram.com/azelzyy/" target="_blank"
-                >Lihat lainnya di Instagram</a
+              <p class="projectDesc">
+                A steampunk-themed character pixel art, inspired by
+                Detective Girl of the Steam City.
+              </p>
+              <a class="linkbutton" href="https://www.instagram.com/azelzyy/" target="_blank"
+                >See more on Instagram</a
               >
             </div>
           </div>
           <div class="projectCard">
             <div class="projectThumb">
-              <img
-                src="hoshino.png"
-                alt="Pixel art preview"
-              />
+              <img src="hoshino.png" alt="Pixel art Takanashi Hoshino" />
             </div>
             <div class="projectInfo">
               <strong>Takanashi Hoshino</strong>
-              <a href="https://www.instagram.com/azelzyy/" target="_blank"
-                >Lihat lainnya di Instagram</a
+              <p class="projectDesc">
+                Pixel art fan art of Takanashi Hoshino from Blue Archive.
+              </p>
+              <a class="linkbutton" href="https://www.instagram.com/azelzyy/" target="_blank"
+                >See more on Instagram</a
               >
             </div>
           </div>
@@ -767,15 +922,18 @@
       <!-- Certificate -->
       <div class="section fadeIn" id="certificate">
         <h2 class="sectionTitle">Certificate</h2>
-        <div class="certGrid">
+        <p class="sectionIntro">Click to open the certificate gallery.</p>
+
+        <div class="dropContent">Certificates</div>
+        <div class="certGrid content">
           <div class="certThumb">
-            <img src="certi2.jpg" alt="Sertifikat 1" />
+            <img src="certi2.jpg" alt="Certificate 1" />
           </div>
           <div class="certThumb">
-            <img src="cerrti3.jpg" alt="Sertifikat 2" />
+            <img src="cerrti3.jpg" alt="Certificate 2" />
           </div>
           <div class="certThumb">
-            <img src="certi1.png" alt="Sertifikat 3" />
+            <img src="certi1.png" alt="Certificate 3" />
           </div>
         </div>
       </div>
