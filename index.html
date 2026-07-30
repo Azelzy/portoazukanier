@@ -10,7 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <link rel="icon" href="/YoRHaLogo.webp" type="image/webp" />
+    <link rel="icon" href="https://static.wikia.nocookie.net/vsbattles/images/7/7d/YoRHaLogo2.png/revision/latest/scale-to-width-down/300?cb=20220826061050" type="image/png" />
     <title>AzukaPorto</title>
 
     <style>
@@ -213,6 +213,7 @@
         text-shadow: 3px 4px rgba(162, 156, 142, 0.8);
         margin-bottom: 6px;
       }
+
       .heroName {
         display: inline-block;
         font-variant-ligatures: none;
@@ -250,6 +251,41 @@
       .heroText p {
         font-weight: 200;
         letter-spacing: 1px;
+      }
+
+      .githubBtn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        color: #4b4340;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.85em;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        transition: color 0.2s ease-out, background 0.2s ease-out;
+      }
+
+      .chip:hover,
+      .projectInfo a.linkbutton:hover,
+      .footerLinks a:hover,
+      .projectThumb:hover {
+        color: #d3cebb;
+      }
+
+      .githubBtn {
+        text-decoration: underline;
+      }
+
+      .chip:hover img,
+      .projectThumb:hover img {
+        filter: brightness(0) saturate(100%) invert(0.78) sepia(0.45)
+          hue-rotate(12deg) contrast(1.05);
+      }
+
+      .projectInfo a.linkbutton:hover {
+        opacity: 0.9;
       }
 
       /* Skills / stack chips */
@@ -317,9 +353,7 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        transition:
-          box-shadow 0.2s ease-out,
-          transform 0.2s ease-out;
+        transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
       }
 
       .projectCard:hover {
@@ -368,9 +402,7 @@
         object-position: center;
         display: block;
         filter: sepia(0.5) saturate(0.65) contrast(1.08) brightness(0.95);
-        transition:
-          filter 0.35s ease-out,
-          transform 0.35s ease-out;
+        transition: filter 0.35s ease-out, transform 0.35s ease-out;
       }
 
       .projectCard:hover .projectThumb img {
@@ -552,8 +584,14 @@
           <h1><span id="heroName" class="heroName">Azka El Fachrizy</span></h1>
           <p>
             Game Designer & Technical Artist. Unity, Roblox Studio, Blender,
-            Frontend.
+            and Frontend.
           </p>
+          <a
+            class="githubBtn"
+            href="https://github.com/Azelzy"
+            target="_blank"
+            ></i> GitHub Profile</a
+          >
         </div>
       </div>
 
@@ -624,8 +662,9 @@
             <div class="projectInfo">
               <strong>A GAME ABOUT SURVIVING YOUR SPACESHIP</strong>
               <p class="projectDesc">
-                A short space-themed survival game made in Unity. Players manage
-                resources and fend off threats to keep the ship running.
+                A short space-themed survival game made in Unity. Players
+                manage resources and fend off threats to keep the ship
+                running.
               </p>
               <a
                 class="linkbutton"
@@ -642,7 +681,8 @@
             <div class="projectInfo">
               <strong>Keturon</strong>
               <p class="projectDesc">
-                A short horror project story game based on school at midnight.
+                A Unity project still in development, exploring new
+                mechanics and level design.
               </p>
               <a
                 class="linkbutton"
@@ -664,7 +704,7 @@
               <strong>Akademi Kepolisian Jakarta City</strong>
               <p class="projectDesc">
                 A police academy roleplay experience on Roblox, complete with
-                training grounds, classrooms, and other facilities.
+                training grounds, classrooms, and campus facilities.
               </p>
               <a
                 class="linkbutton"
@@ -684,8 +724,8 @@
             <div class="projectInfo">
               <strong>Markas Komando Brimob</strong>
               <p class="projectDesc">
-                A Brimob command headquarters map for Roblox roleplay, laid out
-                to resemble the real facility.
+                A Brimob command headquarters map for Roblox roleplay, laid
+                out to resemble the real facility.
               </p>
               <a
                 class="linkbutton"
@@ -745,8 +785,8 @@
             <div class="projectInfo">
               <strong>Level Design</strong>
               <p class="projectDesc">
-                A study of spatial layout and level blocking in Blender for game
-                environments.
+                A study of spatial layout and level blocking in Blender for
+                game environments.
               </p>
             </div>
           </div>
@@ -757,15 +797,13 @@
             <div class="projectInfo">
               <strong>Props Placement</strong>
               <p class="projectDesc">
-                Arranging 3D assets and props within a scene to strengthen the
-                environment's atmosphere.
+                Arranging 3D assets and props within a scene to strengthen
+                the environment's atmosphere.
               </p>
             </div>
           </div>
           <div class="projectCard">
-            <div class="projectThumb">
-              <img src="mobilmbg.png" alt="MBG car model" />
-            </div>
+            <div class="projectThumb"><img src="mobilmbg.png" alt="MBG car model" /></div>
             <div class="projectInfo">
               <strong>Mobil MBG</strong>
               <p class="projectDesc">
@@ -787,22 +825,12 @@
             <div class="projectInfo">
               <strong>JKC:RP Website</strong>
               <p class="projectDesc">
-                The official website for the Jakarta City roleplay community,
-                built with React for server information.
+                The official website for the Jakarta City roleplay
+                community, built with React for server information.
               </p>
               <div class="linkRow">
-                <a
-                  class="linkbutton"
-                  href="https://jakartacityroleplay.my.id/"
-                  target="_blank"
-                  >Website</a
-                >
-                <a
-                  class="linkbutton"
-                  href="https://github.com/Azelzy/JAKARTA-CITY-ROLEPLAY-WEBSITE"
-                  target="_blank"
-                  >Repository</a
-                >
+                <a class="linkbutton" href="https://jakartacityroleplay.my.id/" target="_blank">Website</a>
+                <a class="linkbutton" href="https://github.com/Azelzy/JAKARTA-CITY-ROLEPLAY-WEBSITE" target="_blank">Repository</a>
               </div>
             </div>
           </div>
@@ -813,22 +841,12 @@
             <div class="projectInfo">
               <strong>JCPD Website</strong>
               <p class="projectDesc">
-                The Jakarta City roleplay police department website, showcasing
-                divisions and recruitment information.
+                The Jakarta City roleplay police department website,
+                showcasing divisions and recruitment information.
               </p>
               <div class="linkRow">
-                <a
-                  class="linkbutton"
-                  href="https://azelzy.github.io/JAKARTA-POLICE-DEPARTMENT-WEBSITE/"
-                  target="_blank"
-                  >Website</a
-                >
-                <a
-                  class="linkbutton"
-                  href="https://github.com/Azelzy/JAKARTA-POLICE-DEPARTMENT-WEBSITE"
-                  target="_blank"
-                  >Repository</a
-                >
+                <a class="linkbutton" href="https://azelzy.github.io/JAKARTA-POLICE-DEPARTMENT-WEBSITE/" target="_blank">Website</a>
+                <a class="linkbutton" href="https://github.com/Azelzy/JAKARTA-POLICE-DEPARTMENT-WEBSITE" target="_blank">Repository</a>
               </div>
             </div>
           </div>
@@ -842,15 +860,10 @@
             <div class="projectInfo">
               <strong>Sistem Pajak JKC:RP</strong>
               <p class="projectDesc">
-                A web app for managing and calculating taxes within the Jakarta
-                City roleplay community.
+                A web app for managing and calculating taxes within the
+                Jakarta City roleplay community.
               </p>
-              <a
-                class="linkbutton"
-                href="https://github.com/Azelzy/SISTEM-PAJAK-ROLEPLAY"
-                target="_blank"
-                >Repository</a
-              >
+              <a class="linkbutton" href="https://github.com/Azelzy/SISTEM-PAJAK-ROLEPLAY" target="_blank">Repository</a>
             </div>
           </div>
         </div>
@@ -864,39 +877,26 @@
                 A food ordering app with Firestore integration and a payment
                 gateway for transactions.
               </p>
-              <a
-                class="linkbutton"
-                href="https://github.com/Azelzy/crudfirestoreandpaymentgateway"
-                target="_blank"
-                >View Repo</a
-              >
+              <a class="linkbutton" href="https://github.com/Azelzy/crudfirestoreandpaymentgateway" target="_blank">View Repo</a>
             </div>
           </div>
           <div class="projectCard">
             <div class="projectInfo">
               <strong>Product Store App</strong>
               <p class="projectDesc">
-                A simple product store app with CRUD features, built as a class
-                collaboration project.
+                A simple product store app with CRUD features, built as a
+                class collaboration project.
               </p>
-              <a
-                class="linkbutton"
-                href="https://github.com/Azelzy/pasmobile11pplg1_06"
-                target="_blank"
-                >View Repo</a
-              >
+              <a class="linkbutton" href="https://github.com/Azelzy/pasmobile11pplg1_06" target="_blank">View Repo</a>
             </div>
           </div>
           <div class="projectCard">
             <div class="projectInfo">
               <strong>Todo List App</strong>
-              <p class="projectDesc">A task list app.</p>
-              <a
-                class="linkbutton"
-                href="https://github.com/Azelzy/PROJEK_KOLLAB_FLUTTER_06_17"
-                target="_blank"
-                >View Repo</a
-              >
+              <p class="projectDesc">
+                A task list app.
+              </p>
+              <a class="linkbutton" href="https://github.com/Azelzy/PROJEK_KOLLAB_FLUTTER_06_17" target="_blank">View Repo</a>
             </div>
           </div>
         </div>
@@ -914,10 +914,7 @@
                 narrative, and gameplay structure in full for the GACCI
                 competition at Binus University.
               </p>
-              <a
-                class="linkbutton"
-                href="https://canva.link/6yfo0b8z0qp7yrv"
-                target="_blank"
+              <a class="linkbutton" href="https://canva.link/6yfo0b8z0qp7yrv" target="_blank"
                 >View GDD Slides</a
               >
             </div>
@@ -948,10 +945,7 @@
                 Pixel art fan art of Hiura Mihate wearing a student council x
                 seifuku uniform.
               </p>
-              <a
-                class="linkbutton"
-                href="https://www.instagram.com/azelzyy/"
-                target="_blank"
+              <a class="linkbutton" href="https://www.instagram.com/azelzyy/" target="_blank"
                 >See more on Instagram</a
               >
             </div>
@@ -963,13 +957,10 @@
             <div class="projectInfo">
               <strong>Nagisa Shiota</strong>
               <p class="projectDesc">
-                Pixel art fan art of Nagisa Shiota from the anime Assassination
-                Classroom.
+                Pixel art fan art of Nagisa Shiota from the anime
+                Assassination Classroom.
               </p>
-              <a
-                class="linkbutton"
-                href="https://www.instagram.com/azelzyy/"
-                target="_blank"
+              <a class="linkbutton" href="https://www.instagram.com/azelzyy/" target="_blank"
                 >See more on Instagram</a
               >
             </div>
@@ -981,13 +972,10 @@
             <div class="projectInfo">
               <strong>Detective Girl of the Steam City</strong>
               <p class="projectDesc">
-                A steampunk-themed character pixel art, inspired by Detective
-                Girl of the Steam City.
+                A steampunk-themed character pixel art, inspired by
+                Detective Girl of the Steam City.
               </p>
-              <a
-                class="linkbutton"
-                href="https://www.instagram.com/azelzyy/"
-                target="_blank"
+              <a class="linkbutton" href="https://www.instagram.com/azelzyy/" target="_blank"
                 >See more on Instagram</a
               >
             </div>
@@ -1001,10 +989,7 @@
               <p class="projectDesc">
                 Pixel art fan art of Takanashi Hoshino from Blue Archive.
               </p>
-              <a
-                class="linkbutton"
-                href="https://www.instagram.com/azelzyy/"
-                target="_blank"
+              <a class="linkbutton" href="https://www.instagram.com/azelzyy/" target="_blank"
                 >See more on Instagram</a
               >
             </div>
@@ -1013,10 +998,10 @@
       </div>
       <!-- Certificate -->
       <div class="section fadeIn" id="certificate">
-        <h2 class="sectionTitle">Certificates</h2>
+        <h2 class="sectionTitle">Certificate</h2>
         <p class="sectionIntro">Click to open the certificate gallery.</p>
 
-        <div class="dropContent"></div>
+        <div class="dropContent">Certificates</div>
         <div class="certGrid content">
           <div class="certThumb">
             <img src="certi2.jpg" alt="Certificate 1" />
@@ -1077,54 +1062,13 @@
     <!-- Sounds -->
     <script>
       $(document).ready(function () {
-        const heroNames = [
-          "Azka El Fachrizy",
-          "タカヤマ アズカ",
-          "Azuka Takayama",
-        ];
-        const glitchChars = "アイウエオカキクケコサシスセソ0123456789#%&_-/\\";
-        let nameIndex = 0;
-
-        function scrambleTo(el, target, duration) {
-          const start = el.textContent.split("");
-          const end = target.split("");
-          const len = Math.max(start.length, end.length);
-          const frames = 10;
-          let frame = 0;
-
-          el.classList.add("glitching");
-          const interval = setInterval(() => {
-            let out = "";
-            for (let i = 0; i < len; i++) {
-              if (i < frame * (len / frames) || !end[i]) {
-                out += end[i] || "";
-              } else {
-                out +=
-                  glitchChars[Math.floor(Math.random() * glitchChars.length)];
-              }
-            }
-            el.textContent = out;
-            frame++;
-            if (frame > frames) {
-              clearInterval(interval);
-              el.textContent = target;
-              el.classList.remove("glitching");
-            }
-          }, duration / frames);
-        }
-
-        function cycleHeroName() {
-          const el = document.getElementById("heroName");
-          nameIndex = (nameIndex + 1) % heroNames.length;
-          scrambleTo(el, heroNames[nameIndex], 400);
-        }
-
-        setInterval(cycleHeroName, 3000);
         var hoverSound = document.getElementById("hover-sound");
         var clickSound = document.getElementById("click-sound");
         var openlinkSound = document.getElementById("open-link-sound");
 
-        $(".dropContent,.chip,.projectInfo a.linkbutton,.footerLinks a").hover(
+        $(
+          ".dropContent, .chip, .projectThumb, .projectThumb img, .projectInfo a.linkbutton, .footerLinks a, .githubBtn",
+        ).hover(
           function () {
             hoverSound.currentTime = 0;
             hoverSound.play();
@@ -1167,6 +1111,44 @@
       themeSong.onpause = function () {
         $("#controlButton").removeClass("fa-pause").addClass("fa-play");
       };
+
+      const heroNames = ["Azka El Fachrizy", "タカヤマ アズカ", "Azuka Takayama"];
+      const glitchChars = "アイウエオカキクケコサシスセソ0123456789#%&_-/\\";
+      let nameIndex = 0;
+
+      function scrambleTo(el, target, duration) {
+        const end = target.split("");
+        const len = end.length;
+        const frames = 10;
+        let frame = 0;
+
+        el.classList.add("glitching");
+        const interval = setInterval(() => {
+          let out = "";
+          for (let i = 0; i < len; i++) {
+            if (i < frame * (len / frames)) {
+              out += end[i];
+            } else {
+              out += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+            }
+          }
+          el.textContent = out;
+          frame++;
+          if (frame > frames) {
+            clearInterval(interval);
+            el.textContent = target;
+            el.classList.remove("glitching");
+          }
+        }, duration / frames);
+      }
+
+      function cycleHeroName() {
+        var el = document.getElementById("heroName");
+        nameIndex = (nameIndex + 1) % heroNames.length;
+        scrambleTo(el, heroNames[nameIndex], 400);
+      }
+
+      setInterval(cycleHeroName, 3000);
 
       function isTyping() {
         var activeElement = document.activeElement;
