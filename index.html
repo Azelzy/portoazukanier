@@ -65,6 +65,7 @@
           linear-gradient(rgba(198, 192, 170, 0.5) 30%, transparent 30%);
         background-size: 5px 5px;
         font-weight: 400;
+        overflow-x: hidden;
       }
 
       h1,
@@ -89,7 +90,11 @@
       .yorhaPattern {
         border-top: 2px solid #4b4340;
         border-bottom: 2px solid #4b4340;
-        margin: 0 30px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        left: 0;
       }
 
       .yorhaPattern.top {
@@ -896,8 +901,7 @@
             <div class="projectInfo">
               <strong>Keturon</strong>
               <p class="projectDesc">
-                A Unity project still in development, exploring new
-                mechanics and level design.
+                A short horror story game made in Unity, featuring a dark narrative and atmospheric environments.
               </p>
               <a
                 class="linkbutton"
@@ -919,7 +923,7 @@
               <strong>Akademi Kepolisian Jakarta City</strong>
               <p class="projectDesc">
                 A police academy roleplay experience on Roblox, complete with
-                training grounds, classrooms, and campus facilities.
+                training grounds, classrooms, and other facilities.
               </p>
               <a
                 class="linkbutton"
